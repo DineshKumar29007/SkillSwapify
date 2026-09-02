@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Skill - Skill Swiftify</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Skill Swiftify</div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="find-skill.html">Find a Skill</a></li>
+            <li><a href="index.html#teach">Teach a Skill</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#" class="signup-btn">Sign Up</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Hero -->
+    <section class="find-hero">
+        <h1>Find a Skill to Learn</h1>
+        <p>Discover skills from people who are ready to teach you.</p>
+
+        <div class="search-box">
+            <input
+                type="text"
+                id="skillSearch"
+                placeholder="Search for a skill..."
+                onkeyup="searchSkills()"
+            >
+
+            <button onclick="searchSkills()">
+                Search
+            </button>
+        </div>
+    </section>
+
+
+    <!-- Find Skills Section -->
+    <section class="find-section">
+
+        <!-- Filters -->
+        <aside class="filter-box">
+
+            <h3>Filters</h3>
+
+            <h4>Learning Type</h4>
+
+            <label>
+                <input
+                    type="radio"
+                    name="type"
+                    value="all"
+                    checked
+                    onchange="filterSkills()"
+                >
+                All
+            </label>
+
+            <label>
+                <input
+                    type="radio"
+                    name="type"
+                    value="free"
+                    onchange="filterSkills()"
+                >
+                Free
+            </label>
+
+            <label>
+                <input
+                    type="radio"
+                    name="type"
+                    value="paid"
+                    onchange="filterSkills()"
+                >
+                Paid
+            </label>
+
+
+            <h4>Category</h4>
+
+            <select id="categoryFilter" onchange="filterSkills()">
+
+                <option value="all">
+                    All Categories
+                </option>
+
+                <option value="Programming">
+                    Programming
+                </option>
+
+                <option value="Design">
+                    Design
+                </option>
+
+                <option value="Video Editing">
+                    Video Editing
+                </option>
+
+                <option value="Music">
+                    Music
+                </option>
+
+                <option value="Photography">
+                    Photography
+                </option>
+
+            </select>
+
+
+            <button
+                class="clear-btn"
+                onclick="clearFilters()"
+            >
+                Clear Filters
+            </button>
+
+        </aside>
+
+
+        <!-- Results -->
+        <div class="skill-results">
+
+            <div class="results-top">
+
+                <h2>
+                    Available Skills
+                </h2>
+
+                <div>
+
+                    <span id="resultCount">
+                        6 skills found
+                    </span>
+
+                    <select
+                        id="sortSkills"
+                        onchange="sortSkills()"
+                    >
+
+                        <option value="default">
+                            Sort By
+                        </option>
+
+                        <option value="low">
+                            Price: Low to High
+                        </option>
+
+                        <option value="high">
+                            Price: High to Low
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- Skill Cards -->
+            <div
+                class="skill-results-grid"
+                id="skillResults"
+            >
+
+                <!-- Python -->
+                <div
+                    class="teacher-card"
+                    data-name="Python Programming"
+                    data-category="Programming"
+                    data-type="paid"
+                    data-price="200"
+                >
+
+                    <div class="card-icon">
+                        🐍
+                    </div>
+
+                    <h3>
+                        Python Programming
+                    </h3>
+
+                    <p>
+                        Learn Python from basics to practical programming.
+                    </p>
+
+                    <strong>
+                        Teacher: Alex
+                    </strong>
+
+                    <div class="card-bottom">
+
+                        <span class="paid-price">
+                            ₹200
+                        </span>
+
+                        <a
+                            href="skill-details.html?skill=python"
+                            class="learn-btn"
+                        >
+                            View Skill
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- HTML CSS -->
+                <div
+                    class="teacher-card"
+                    data-name="HTML CSS"
+                    data-category="Programming"
+                    data-type="free"
+                    data-price="0"
+                >
+
+                    <div class="card-icon">
+                        🌐
+                    </div>
+
+                    <h3>
+                        HTML & CSS
+                    </h3>
+
+                    <p>
+                        Learn how to create websites using HTML and CSS.
+                    </p>
+
+                    <strong>
+                        Teacher: Rahul
+                    </strong>
+
+                    <div class="card-bottom">
+
+                        <span class="free-price">
+                            FREE
+                        </span>
+
+                        <a
+                            href="skill-details.html?skill=html"
+                            class="learn-btn"
+                        >
+                            View Skill
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Graphic Design -->
+                <div
+                    class="teacher-card"
+                    data-name="Graphic Design"
+                    data-category="Design"
+                    data-type="paid"
+                    data-price="300"
+                >
+
+                    <div class="card-icon">
+                        🎨
+                    </div>
+
+                    <h3>
+                        Graphic Design
+                    </h3>
+
+                    <p>
+                        Learn design principles and create attractive graphics.
+                    </p>
+
+                    <strong>
+                        Teacher: Sneha
+                    </strong>
+
+                    <div class="card-bottom">
+
+                        <span class="paid-price">
+                            ₹300
+                        </span>
+
+                        <a
+                            href="skill-details.html?skill=design"
+                            class="learn-btn"
+                        >
+                            View Skill
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Video Editing -->
+                <div
+                    class="teacher-card"
+                    data-name="Video Editing"
+                    data-category="Video Editing"
+                    data-type="paid"
+                    data-price="250"
+                >
+
+                    <div class="card-icon">
+                        🎬
+                    </div>
+
+                    <h3>
+                        Video Editing
+                    </h3>
+
+                    <p>
+                        Learn video editing and create engaging videos.
+                    </p>
+
+                    <strong>
+                        Teacher: Vikram
+                    </strong>
+
+                    <div class="card-bottom">
+
+                        <span class="paid-price">
+                            ₹250
+                        </span>
+
+                        <a
+                            href="skill-details.html?skill=video"
+                            class="learn-btn"
+                        >
+                            View Skill
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Guitar -->
+                <div
+                    class="teacher-card"
+                    data-name="Guitar Basics"
+                    data-category="Music"
+                    data-type="free"
+                    data-price="0"
+                >
+
+                    <div class="card-icon">
+                        🎸
+                    </div>
+
+                    <h3>
+                        Guitar Basics
+                    </h3>
+
+                    <p>
+                        Start learning guitar with basic chords and techniques.
+                    </p>
+
+                    <strong>
+                        Teacher: Mohit
+                    </strong>
+
+                    <div class="card-bottom">
+
+                        <span class="free-price">
+                            FREE
+                        </span>
+
+                        <a
+                            href="skill-details.html?skill=guitar"
+                            class="learn-btn"
+                        >
+                            View Skill
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Photography -->
+                <div
+                    class="teacher-card"
+                    data-name="Photography"
+                    data-category="Photography"
+                    data-type="paid"
+                    data-price="150"
+                >
+
+                    <div class="card-icon">
+                        📷
+                    </div>
+
+                    <h3>
+                        Photography
+                    </h3>
+
+                    <p>
+                        Learn photography basics and improve your camera skills.
+                    </p>
+
+                    <strong>
+                        Teacher: Neha
+                    </strong>
+
+                    <div class="card-bottom">
+
+                        <span class="paid-price">
+                            ₹150
+                        </span>
+
+                        <a
+                            href="skill-details.html?skill=photography"
+                            class="learn-btn"
+                        >
+                            View Skill
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- No Results -->
+            <div
+                class="no-results"
+                id="noResults"
+                style="display: none;"
+            >
+
+                <h3>
+                    No Skills Found
+                </h3>
+
+                <p>
+                    Try another search or change the filters.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div>
+                <h2>Skill Swiftify</h2>
+                <p>
+                    Learn skills. Share skills. Grow together.
+                </p>
+            </div>
+
+
+            <div>
+                <h3>Quick Links</h3>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="find-skill.html">
+                    Find a Skill
+                </a>
+
+                <a href="index.html#teach">
+                    Teach a Skill
+                </a>
+
+            </div>
+
+
+            <div>
+                <h3>Contact</h3>
+
+                <p>
+                    Email: support@skillswiftify.com
+                </p>
+
+                <p>
+                    India
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <p class="copyright">
+            © 2026 Skill Swiftify. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
